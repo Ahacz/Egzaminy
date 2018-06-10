@@ -1,0 +1,74 @@
+﻿@model Egzaminy.Models.Egzamin
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Egzamin</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Data)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Data)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CzasRozpoczecia)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CzasRozpoczecia)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CzasTrwania)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CzasTrwania)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Sala)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Sala)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Podgrupa)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Podgrupa)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.id_wykladowcy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.id_wykladowcy)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edytuj", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

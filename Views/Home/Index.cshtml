@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Strona główna";
+}
+
+<div class="jumbotron">
+    <h1>@Html.ActionLink("Egzaminqy", "Index", "Egzamins")</h1>
+</div>
+
+<div class="jumbotron">
+    <h1>@Html.ActionLink("Egzaminqy", "Index", "Egzamins")</h1>
+</div>
+
+<div class="jumbotron">
+    <h1>@Html.ActionLink("Egzaminqy", "Index", "Egzamins")</h1>
+</div>
+
+
+<div class="row">
+    @if (Context.User.IsInRole("Admin"))
+    {
+    <ul>
+        <li>@Html.ActionLink("Dodaj Sale", "Index", "Sales")</li>
+        <li>@Html.ActionLink("Dodaj Rok", "Index", "Roks")</li>
+        <li>@Html.ActionLink("Dodaj Przedmiot", "Index", "Przedmioties")</li>
+    </ul>
+    }
+</div>

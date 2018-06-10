@@ -1,0 +1,42 @@
+﻿@model Egzaminy.Models.Sale
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Sale</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NazwaSali)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.NazwaSali)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Pojemnosc)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Pojemnosc)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edytuj", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
