@@ -18,6 +18,7 @@ namespace Egzaminy.Models
         public Przedmioty()
         {
             this.Rok = new HashSet<Rok>();
+            this.Wykladowca = new HashSet<ApplicationUser>();
         }
     
         public int Id { get; set; }
@@ -25,5 +26,6 @@ namespace Egzaminy.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rok> Rok { get; set; }
+        public virtual ICollection<ApplicationUser> Wykladowca { get; set; }
     }
 }

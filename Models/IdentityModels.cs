@@ -14,7 +14,8 @@ namespace Egzaminy.Models
         public ApplicationUser()
         {
             this.Rok = new HashSet<Rok>();
-
+            this.Przedm = new HashSet<Przedmioty>();
+            this.Egz = new HashSet<Egzamin>();
         }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -28,6 +29,8 @@ namespace Egzaminy.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rok> Rok { get; set; }
+        public virtual ICollection<Przedmioty>  Przedm {get; set;}
+        public virtual ICollection<Egzamin> Egz { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

@@ -15,17 +15,20 @@ namespace Egzaminy.Models
 
     public partial class Egzamin
     {
+        public Egzamin()
+        {
+            this.Wykladowca = new HashSet<ApplicationUser>();
+        }
         public int Id { get; set; }
         public System.DateTime Data { get; set; }
         public int CzasRozpoczecia { get; set; }
         public int CzasTrwania { get; set; }
         public int Sala { get; set; }
         public int Podgrupa { get; set; }
-        [Display(Name ="Wyk³adowca")]
-        public string id_wykladowcy { get; set; }
     
        // public virtual AspNetUsers AspNetUsers { get; set; }
         public virtual Podgrupa Podgrupa1 { get; set; }
         public virtual Sale Sale { get; set; }
+        public virtual ICollection<ApplicationUser> Wykladowca { get; set; }
     }
 }

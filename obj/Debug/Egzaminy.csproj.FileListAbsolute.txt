@@ -143,3 +143,4 @@ D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.DodaneRole.resources
 D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.Rejestracja.resources
 D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.WieleDoWielu.resources
 D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.PojemnosciSali.resources
+D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.Wieledowielu11.resources

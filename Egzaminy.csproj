@@ -228,6 +228,10 @@
     <Compile Include="Migrations\201806051140075_PojemnosciSali.Designer.cs">
       <DependentUpon>201806051140075_PojemnosciSali.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806101707126_Wieledowielu11.cs" />
+    <Compile Include="Migrations\201806101707126_Wieledowielu11.Designer.cs">
+      <DependentUpon>201806101707126_Wieledowielu11.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Egzamin.cs" />
@@ -360,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806051140075_PojemnosciSali.resx">
       <DependentUpon>201806051140075_PojemnosciSali.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806101707126_Wieledowielu11.resx">
+      <DependentUpon>201806101707126_Wieledowielu11.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

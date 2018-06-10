@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Egzaminy.Models;
 
 namespace Egzaminy.Controllers
@@ -13,11 +14,17 @@ namespace Egzaminy.Controllers
     public class EgzaminsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
         // GET: Egzamins
         public ActionResult Index()
         {
-            return View(db.Egzamins.ToList());
+            if (User.IsInRole("Admin"))
+                return View(db.Egzamins.ToList());
+            else
+                if(User.IsInRole("Wykładowca"))
+            {
+
+            }
+                return HttpNotFound();
         }
 
         // GET: Egzamins/Details/5
