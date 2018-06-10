@@ -17,19 +17,19 @@ namespace Egzaminy.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rok()
         {
-            this.Podgrupa = new HashSet<Podgrupa>();
             this.Przedmioty = new HashSet<Przedmioty>();
             this.User = new HashSet<ApplicationUser>();
+            this.Egzamin = new HashSet<Egzamin>();
         }
     
         public int Id { get; set; }
         public string NazwaRoku { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Podgrupa> Podgrupa { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Przedmioty> Przedmioty { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ApplicationUser> User { get; set; }
+        public virtual ICollection<Egzamin> Egzamin { get; set; }
     }
 }

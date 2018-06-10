@@ -22,9 +22,16 @@ namespace Egzaminy.Controllers
             else
                 if(User.IsInRole("Wykładowca"))
             {
-
+                List<Egzamin> wynik = db.Egzamins
+                    .Where(w => w.Wykladowca == User).ToList();
+                return View(wynik);
             }
-                return HttpNotFound();
+                else if(User.IsInRole("Student"))
+            {
+               // List<Egzamin> dlastudenta = db.Egzamins
+                //    .Where(r => )
+            }
+            return HttpNotFound();
         }
 
         // GET: Egzamins/Details/5
@@ -46,12 +53,12 @@ namespace Egzaminy.Controllers
         [Authorize(Roles = "Admin,Wykładowca")]
         public ActionResult Create()
         {
-            ViewBag.id_wykladowcy = new SelectList(
+            ViewBag.wykladowca = new SelectList(
                 db.Users.Where(x => x.Roles.Any(y => y.RoleId.Equals(db.Roles.Where
                 (a => a.Name.Equals("Wykładowca")).Select(b => b.Id).FirstOrDefault()))).ToList()
                 , "Id", "Imie");
-            //ViewBag.id_wykladowcy = new SelectList(db.Users, "Id", "Imie");
-            ViewBag.Podgrupa = new SelectList(db.Podgrupas, "Id", "Nazwa");
+            //ViewBag.wykladowca = new SelectList(db.Users, "Id", "Imie");
+            ViewBag.Rok = new SelectList(db.Roks, "Id", "NazwaRoku");
             ViewBag.Sala = new SelectList(db.Sales, "Id", "NazwaSali");
             return View();
         }
@@ -62,7 +69,7 @@ namespace Egzaminy.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin,Wykładowca")]
-        public ActionResult Create([Bind(Include = "Id,Data,CzasRozpoczecia,CzasTrwania,Sala,Podgrupa,id_wykladowcy")] Egzamin egzamin)
+        public ActionResult Create([Bind(Include = "Id,Data,CzasRozpoczecia,CzasTrwania,Sala,Rokk,wykladowca")] Egzamin egzamin)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +103,7 @@ namespace Egzaminy.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin,Wykładowca")]
-        public ActionResult Edit([Bind(Include = "Id,Data,CzasRozpoczecia,CzasTrwania,Sala,Podgrupa,id_wykladowcy")] Egzamin egzamin)
+        public ActionResult Edit([Bind(Include = "Id,Data,CzasRozpoczecia,CzasTrwania,Sala,Rokk,wykladowca")] Egzamin egzamin)
         {
             if (ModelState.IsValid)
             {

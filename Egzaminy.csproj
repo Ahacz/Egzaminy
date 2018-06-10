@@ -193,7 +193,6 @@
     <Compile Include="Controllers\EgzaminsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PodgrupasController.cs" />
     <Compile Include="Controllers\PrzedmiotiesController.cs" />
     <Compile Include="Controllers\RoksController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
@@ -232,12 +231,15 @@
     <Compile Include="Migrations\201806101707126_Wieledowielu11.Designer.cs">
       <DependentUpon>201806101707126_Wieledowielu11.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806101905551_SprzatnieBurdelu.cs" />
+    <Compile Include="Migrations\201806101905551_SprzatnieBurdelu.Designer.cs">
+      <DependentUpon>201806101905551_SprzatnieBurdelu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Egzamin.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Podgrupa.cs" />
     <Compile Include="Models\Przedmioty.cs" />
     <Compile Include="Models\Rok.cs" />
     <Compile Include="Models\Sale.cs" />
@@ -311,11 +313,6 @@
     <Content Include="Views\Roks\Details.cshtml" />
     <Content Include="Views\Roks\Edit.cshtml" />
     <Content Include="Views\Roks\Index.cshtml" />
-    <Content Include="Views\Podgrupas\Create.cshtml" />
-    <Content Include="Views\Podgrupas\Delete.cshtml" />
-    <Content Include="Views\Podgrupas\Details.cshtml" />
-    <Content Include="Views\Podgrupas\Edit.cshtml" />
-    <Content Include="Views\Podgrupas\Index.cshtml" />
     <Content Include="Views\Przedmioties\Create.cshtml" />
     <Content Include="Views\Przedmioties\Delete.cshtml" />
     <Content Include="Views\Przedmioties\Details.cshtml" />
@@ -367,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806101707126_Wieledowielu11.resx">
       <DependentUpon>201806101707126_Wieledowielu11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806101905551_SprzatnieBurdelu.resx">
+      <DependentUpon>201806101905551_SprzatnieBurdelu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

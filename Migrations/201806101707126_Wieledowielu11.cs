@@ -33,12 +33,12 @@ namespace Egzaminy.Migrations
                 .Index(t => t.ApplicationUser_Id)
                 .Index(t => t.Przedmioty_Id);
             
-            DropColumn("dbo.Egzamins", "id_wykladowcy");
+            DropColumn("dbo.Egzamins", "wykladowca");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.Egzamins", "id_wykladowcy", c => c.String());
+            AddColumn("dbo.Egzamins", "wykladowca", c => c.String());
             DropForeignKey("dbo.ApplicationUserPrzedmioties", "Przedmioty_Id", "dbo.Przedmioties");
             DropForeignKey("dbo.ApplicationUserPrzedmioties", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.ApplicationUserEgzamins", "Egzamin_Id", "dbo.Egzamins");

@@ -42,7 +42,6 @@ namespace Egzaminy.Models
         public DbSet<Egzamin> Egzamins { get; set; }
         public DbSet<Rok> Roks { get; set; }
         public DbSet<Sale> Sales { get; set; }
-        public DbSet<Podgrupa> Podgrupas { get; set; }
         public DbSet<Przedmioty> Przedmioties { get; set; }
 
         public static ApplicationDbContext Create()

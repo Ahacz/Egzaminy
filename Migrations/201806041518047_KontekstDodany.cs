@@ -16,19 +16,19 @@ namespace Egzaminy.Migrations
                         CzasRozpoczecia = c.Int(nullable: false),
                         CzasTrwania = c.Int(nullable: false),
                         Sala = c.Int(nullable: false),
-                        Podgrupa = c.Int(nullable: false),
-                        id_wykladowcy = c.String(),
-                        Podgrupa1_Id = c.Int(),
+                        Rokk = c.Int(nullable: false),
+                        wykladowca = c.String(),
+                        Rokk1_Id = c.Int(),
                         Sale_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Podgrupas", t => t.Podgrupa1_Id)
+                .ForeignKey("dbo.Rokks", t => t.Rokk1_Id)
                 .ForeignKey("dbo.Sales", t => t.Sale_Id)
-                .Index(t => t.Podgrupa1_Id)
+                .Index(t => t.Rokk1_Id)
                 .Index(t => t.Sale_Id);
             
             CreateTable(
-                "dbo.Podgrupas",
+                "dbo.Rokks",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -88,18 +88,18 @@ namespace Egzaminy.Migrations
             DropForeignKey("dbo.Egzamins", "Sale_Id", "dbo.Sales");
             DropForeignKey("dbo.PrzedmiotyRoks", "Rok_Id", "dbo.Roks");
             DropForeignKey("dbo.PrzedmiotyRoks", "Przedmioty_Id", "dbo.Przedmioties");
-            DropForeignKey("dbo.Podgrupas", "Rok_Id", "dbo.Roks");
-            DropForeignKey("dbo.Egzamins", "Podgrupa1_Id", "dbo.Podgrupas");
+            DropForeignKey("dbo.Rokks", "Rok_Id", "dbo.Roks");
+            DropForeignKey("dbo.Egzamins", "Rokk1_Id", "dbo.Rokks");
             DropIndex("dbo.PrzedmiotyRoks", new[] { "Rok_Id" });
             DropIndex("dbo.PrzedmiotyRoks", new[] { "Przedmioty_Id" });
-            DropIndex("dbo.Podgrupas", new[] { "Rok_Id" });
+            DropIndex("dbo.Rokks", new[] { "Rok_Id" });
             DropIndex("dbo.Egzamins", new[] { "Sale_Id" });
-            DropIndex("dbo.Egzamins", new[] { "Podgrupa1_Id" });
+            DropIndex("dbo.Egzamins", new[] { "Rokk1_Id" });
             DropTable("dbo.PrzedmiotyRoks");
             DropTable("dbo.Sales");
             DropTable("dbo.Przedmioties");
             DropTable("dbo.Roks");
-            DropTable("dbo.Podgrupas");
+            DropTable("dbo.Rokks");
             DropTable("dbo.Egzamins");
         }
     }

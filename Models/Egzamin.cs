@@ -18,17 +18,17 @@ namespace Egzaminy.Models
         public Egzamin()
         {
             this.Wykladowca = new HashSet<ApplicationUser>();
+            this.Rokk = new HashSet<Rok>();
         }
         public int Id { get; set; }
         public System.DateTime Data { get; set; }
         public int CzasRozpoczecia { get; set; }
         public int CzasTrwania { get; set; }
         public int Sala { get; set; }
-        public int Podgrupa { get; set; }
     
        // public virtual AspNetUsers AspNetUsers { get; set; }
-        public virtual Podgrupa Podgrupa1 { get; set; }
-        public virtual Sale Sale { get; set; }
+        public virtual ICollection<Rok> Rokk { get; set; }
+        public virtual ICollection<Sale> Sale { get; set; }
         public virtual ICollection<ApplicationUser> Wykladowca { get; set; }
     }
 }
