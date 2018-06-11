@@ -145,3 +145,4 @@ D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.WieleDoWielu.resourc
 D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.PojemnosciSali.resources
 D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.Wieledowielu11.resources
 D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.SprzatnieBurdelu.resources
+D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.PoprawioneWdW.resources

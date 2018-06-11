@@ -110,6 +110,7 @@ namespace Egzaminy.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Rok rok = db.Roks.Find(id);
+
             db.Roks.Remove(rok);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -235,6 +235,10 @@
     <Compile Include="Migrations\201806101905551_SprzatnieBurdelu.Designer.cs">
       <DependentUpon>201806101905551_SprzatnieBurdelu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806111702558_PoprawioneWdW.cs" />
+    <Compile Include="Migrations\201806111702558_PoprawioneWdW.Designer.cs">
+      <DependentUpon>201806111702558_PoprawioneWdW.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Egzamin.cs" />
@@ -367,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806101905551_SprzatnieBurdelu.resx">
       <DependentUpon>201806101905551_SprzatnieBurdelu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806111702558_PoprawioneWdW.resx">
+      <DependentUpon>201806111702558_PoprawioneWdW.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

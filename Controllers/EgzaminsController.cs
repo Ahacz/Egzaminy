@@ -28,8 +28,8 @@ namespace Egzaminy.Controllers
             }
                 else if(User.IsInRole("Student"))
             {
-               // List<Egzamin> dlastudenta = db.Egzamins
-                //    .Where(r => )
+                List<Egzamin> dlastudenta = db.Egzamins
+                    .Where(r => r == db.Roks.Where(s => s.User == User)).ToList();
             }
             return HttpNotFound();
         }
@@ -56,7 +56,7 @@ namespace Egzaminy.Controllers
             ViewBag.wykladowca = new SelectList(
                 db.Users.Where(x => x.Roles.Any(y => y.RoleId.Equals(db.Roles.Where
                 (a => a.Name.Equals("Wykładowca")).Select(b => b.Id).FirstOrDefault()))).ToList()
-                , "Id", "Imie");
+                , "Id", "Pelne");
             //ViewBag.wykladowca = new SelectList(db.Users, "Id", "Imie");
             ViewBag.Rok = new SelectList(db.Roks, "Id", "NazwaRoku");
             ViewBag.Sala = new SelectList(db.Sales, "Id", "NazwaSali");
