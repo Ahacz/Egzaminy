@@ -6,138 +6,111 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 using Egzaminy.Models;
 
 namespace Egzaminy.Controllers
 {
-    public class EgzaminsController : Controller
+    public class ZarzLatamiController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        // GET: Egzamins
+
+        // GET: ZarzLatami
         public ActionResult Index()
         {
-            if (User.IsInRole("Admin"))
-                return View(db.Egzamins.ToList());
-            else
-                if(User.IsInRole("Wykładowca"))
-            {
-                List<Egzamin> wynik = db.Egzamins
-                    .Where(w => w.Wykladowca == User).ToList();
-                return View(wynik);
-            }
-                else if(User.IsInRole("Student"))
-            {
-                List<Egzamin> dlastudenta = db.Egzamins
-                    .Where(r => r == db.Roks.Where(s => s.User == User)).ToList();
-            }
-            return HttpNotFound();
+            return View(db.Roks.ToList());
         }
 
-        // GET: Egzamins/Details/5
+        // GET: ZarzLatami/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Egzamin egzamin = db.Egzamins.Find(id);
-            if (egzamin == null)
+            Rok rok = db.Roks.Find(id);
+            if (rok == null)
             {
                 return HttpNotFound();
             }
-            return View(egzamin);
+            return View(rok);
         }
 
-        // GET: Egzamins/Create
-        [Authorize(Roles = "Admin,Wykładowca")]
+        // GET: ZarzLatami/Create
         public ActionResult Create()
         {
-            ViewBag.wykladowca = new SelectList(
-                db.Users.Where(x => x.Roles.Any(y => y.RoleId.Equals(db.Roles.Where
-                (a => a.Name.Equals("Wykładowca")).Select(b => b.Id).FirstOrDefault()))).ToList()
-                , "Id", "Pelne");
-            //ViewBag.wykladowca = new SelectList(db.Users, "Id", "Imie");
-            ViewBag.Rokk = new SelectList(db.Roks, "Id", "NazwaRoku");
-            ViewBag.Sala = new SelectList(db.Sales, "Id", "NazwaSali");
             return View();
         }
 
-        // POST: Egzamins/Create
+        // POST: ZarzLatami/Create
         // Aby zapewnić ochronę przed atakami polegającymi na przesyłaniu dodatkowych danych, włącz określone właściwości, z którymi chcesz utworzyć powiązania.
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin,Wykładowca")]
-        public ActionResult Create([Bind(Include = "Id,Data,CzasRozpoczecia,CzasTrwania,Sala,Rokk,wykladowca")] Egzamin egzamin)
+        public ActionResult Create([Bind(Include = "Id,NazwaRoku")] Rok rok)
         {
             if (ModelState.IsValid)
             {
-                db.Egzamins.Add(egzamin);
+                db.Roks.Add(rok);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(egzamin);
+            return View(rok);
         }
 
-        // GET: Egzamins/Edit/5
-        [Authorize(Roles = "Admin,Wykładowca")]
+        // GET: ZarzLatami/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Egzamin egzamin = db.Egzamins.Find(id);
-            if (egzamin == null)
+            Rok rok = db.Roks.Find(id);
+            if (rok == null)
             {
                 return HttpNotFound();
             }
-            return View(egzamin);
+            return View(rok);
         }
 
-        // POST: Egzamins/Edit/5
+        // POST: ZarzLatami/Edit/5
         // Aby zapewnić ochronę przed atakami polegającymi na przesyłaniu dodatkowych danych, włącz określone właściwości, z którymi chcesz utworzyć powiązania.
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin,Wykładowca")]
-        public ActionResult Edit([Bind(Include = "Id,Data,CzasRozpoczecia,CzasTrwania,Sala,Rokk,wykladowca")] Egzamin egzamin)
+        public ActionResult Edit([Bind(Include = "Id,NazwaRoku")] Rok rok)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(egzamin).State = EntityState.Modified;
+                db.Entry(rok).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(egzamin);
+            return View(rok);
         }
 
-        // GET: Egzamins/Delete/5
-        [Authorize(Roles = "Admin,Wykładowca")]
+        // GET: ZarzLatami/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Egzamin egzamin = db.Egzamins.Find(id);
-            if (egzamin == null)
+            Rok rok = db.Roks.Find(id);
+            if (rok == null)
             {
                 return HttpNotFound();
             }
-            return View(egzamin);
+            return View(rok);
         }
 
-        // POST: Egzamins/Delete/5
-        [Authorize(Roles = "Admin,Wykładowca")]
-        [HttpPost, ActionName("Usuń")]
+        // POST: ZarzLatami/Delete/5
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Egzamin egzamin = db.Egzamins.Find(id);
-            db.Egzamins.Remove(egzamin);
+            Rok rok = db.Roks.Find(id);
+            db.Roks.Remove(rok);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

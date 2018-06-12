@@ -146,3 +146,5 @@ D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.PojemnosciSali.resou
 D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.Wieledowielu11.resources
 D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.SprzatnieBurdelu.resources
 D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.PoprawioneWdW.resources
+D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.salenietak.resources
+D:\Projects\Egzaminy\Egzaminy\obj\Debug\Egzaminy.Migrations.drobnanaprawa2.resources

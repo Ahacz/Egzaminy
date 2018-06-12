@@ -196,6 +196,9 @@
     <Compile Include="Controllers\PrzedmiotiesController.cs" />
     <Compile Include="Controllers\RoksController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\WykladowcaController.cs" />
+    <Compile Include="Controllers\ZarzLatamiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -239,6 +242,14 @@
     <Compile Include="Migrations\201806111702558_PoprawioneWdW.Designer.cs">
       <DependentUpon>201806111702558_PoprawioneWdW.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806111823138_salenietak.cs" />
+    <Compile Include="Migrations\201806111823138_salenietak.Designer.cs">
+      <DependentUpon>201806111823138_salenietak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806112049337_drobnanaprawa2.cs" />
+    <Compile Include="Migrations\201806112049337_drobnanaprawa2.Designer.cs">
+      <DependentUpon>201806112049337_drobnanaprawa2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Egzamin.cs" />
@@ -249,6 +260,8 @@
     <Compile Include="Models\Sale.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\DajLata.cs" />
+    <Compile Include="ViewModels\DajPrzedmioty.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -327,6 +340,19 @@
     <Content Include="Views\Sales\Details.cshtml" />
     <Content Include="Views\Sales\Edit.cshtml" />
     <Content Include="Views\Sales\Index.cshtml" />
+    <Content Include="Views\Wykladowca\Delete.cshtml" />
+    <Content Include="Views\Wykladowca\Details.cshtml" />
+    <Content Include="Views\Wykladowca\Edit.cshtml" />
+    <Content Include="Views\Wykladowca\Index.cshtml" />
+    <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Student\Details.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\ZarzLatami\Create.cshtml" />
+    <Content Include="Views\ZarzLatami\Delete.cshtml" />
+    <Content Include="Views\ZarzLatami\Details.cshtml" />
+    <Content Include="Views\ZarzLatami\Edit.cshtml" />
+    <Content Include="Views\ZarzLatami\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -374,6 +400,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806111702558_PoprawioneWdW.resx">
       <DependentUpon>201806111702558_PoprawioneWdW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806111823138_salenietak.resx">
+      <DependentUpon>201806111823138_salenietak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806112049337_drobnanaprawa2.resx">
+      <DependentUpon>201806112049337_drobnanaprawa2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

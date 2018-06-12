@@ -58,5 +58,6 @@ namespace Egzaminy.Models
         {
             return new ApplicationDbContext();
         }
+
     }
 }

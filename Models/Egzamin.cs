@@ -27,8 +27,9 @@ namespace Egzaminy.Models
         public int Sala { get; set; }
     
        // public virtual AspNetUsers AspNetUsers { get; set; }
+       [Display(Name ="Rok")]
         public virtual ICollection<Rok> Rokk { get; set; }
-        public virtual ICollection<Sale> Sale { get; set; }
+        [Display(Name = "Wyk³adowca")]
         public virtual ICollection<ApplicationUser> Wykladowca { get; set; }
     }
 }
