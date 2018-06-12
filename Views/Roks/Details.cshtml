@@ -19,11 +19,23 @@
             <dt>
                 @Html.DisplayNameFor(model => model.NazwaRoku)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.NazwaRoku)
             </dd>
-    
+            <dt>
+                @Html.DisplayNameFor(model => model.Przedmioty)
+            </dt>
+
+            <dd>
+                @{
+            foreach (var przedm in Model.Przedmioty)
+            {
+                @przedm.Id @: @przedm.NazwaPrzedmiotu <br />
+    }
+                }
+            </dd>
+
         </dl>
     </div>
     <p>

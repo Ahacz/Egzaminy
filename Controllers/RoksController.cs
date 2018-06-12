@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Egzaminy.Models;
+using Egzaminy.ViewModels;
 
 namespace Egzaminy.Controllers
 {
@@ -66,11 +67,28 @@ namespace Egzaminy.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Rok rok = db.Roks.Find(id);
+            Wypelnijprzedmiotami(rok);
             if (rok == null)
             {
                 return HttpNotFound();
             }
             return View(rok);
+        }
+        private void Wypelnijprzedmiotami(Rok rok)
+        {
+            var przedmioty = db.Przedmioties;
+            var przedmiotyrok = new HashSet<int>(rok.Przedmioty.Select(p => p.Id));
+            var viewModel = new List<DajPrzedmioty>();
+            foreach (var przedmiot in przedmioty)
+            {
+                viewModel.Add(new DajPrzedmioty
+                {
+                    PrzedmID = przedmiot.Id,
+                    Nazwa = przedmiot.NazwaPrzedmiotu,
+                    Przypisano = przedmiotyrok.Contains(przedmiot.Id)
+                });
+            }
+            ViewBag.Przedmioty = viewModel;
         }
 
         // POST: Roks/Edit/5
@@ -78,15 +96,40 @@ namespace Egzaminy.Controllers
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,NazwaRoku")] Rok rok)
+        public ActionResult Edit(Rok rok, string[] przedmiotyx)
         {
+           
             if (ModelState.IsValid)
             {
                 db.Entry(rok).State = EntityState.Modified;
+                AktualizujPrzedmioty(przedmiotyx, rok);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(rok);
+        }
+        private void AktualizujPrzedmioty(string[] przedmioty, Rok rok)
+        {
+            db.Entry(rok).Collection(prz => prz.Przedmioty).Load();
+            if (przedmioty == null)
+            {
+                rok.Przedmioty = new List<Przedmioty>();
+                return;
+            }
+            var przedmiotyHS = new HashSet<string>(przedmioty);
+            var rokPrzedm = new HashSet<int>(rok.Przedmioty.Select(p => p.Id));
+            foreach (var przedm in db.Przedmioties)
+            {
+                if (przedmiotyHS.Contains(przedm.Id.ToString()))
+                {
+                    if (!rokPrzedm.Contains(przedm.Id))
+                    {
+                        rok.Przedmioty.Add(przedm);
+                    }
+                }
+                else if (rokPrzedm.Contains(przedm.Id))
+                    rok.Przedmioty.Remove(przedm);
+            }
         }
 
         // GET: Roks/Delete/5

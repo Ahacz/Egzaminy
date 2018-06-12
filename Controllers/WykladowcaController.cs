@@ -87,6 +87,7 @@ namespace Egzaminy.Controllers
         {
             if (ModelState.IsValid)
             {
+                //Musi zostać ustawiony na modified, żeby można było wprowadzić zmiany.
                 db.Entry(applicationUser).State = EntityState.Modified;
                 AktualizujPrzedmioty(przedmioty, applicationUser);
                 db.SaveChanges();

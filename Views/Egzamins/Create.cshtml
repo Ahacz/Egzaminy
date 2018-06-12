@@ -51,24 +51,21 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Sala, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("Sala", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Sala, "", new { @class = "text-danger" })
+                    @Html.DropDownList("Sala", (SelectList)ViewBag.Sala, " ")
                 </div>
             </div>
     
             <div class="form-group">
                 @Html.LabelFor(model => model.Rokk, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("Rokk", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Rokk, "", new { @class = "text-danger" })
+                    @Html.DropDownList("Rokk", (SelectList)ViewBag.Rokk, " ")
                 </div>
             </div>
     
             <div class="form-group">
                 @Html.LabelFor(model => model.Wykladowca, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownList("wykladowca", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Wykladowca, "", new { @class = "text-danger" })
+                    @Html.DropDownList("wykladowca", (SelectList)ViewBag.Wykladowca, " ")
                 </div>
             </div>
     

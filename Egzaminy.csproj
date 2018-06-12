@@ -198,7 +198,6 @@
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\WykladowcaController.cs" />
-    <Compile Include="Controllers\ZarzLatamiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -348,11 +347,6 @@
     <Content Include="Views\Student\Details.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
-    <Content Include="Views\ZarzLatami\Create.cshtml" />
-    <Content Include="Views\ZarzLatami\Delete.cshtml" />
-    <Content Include="Views\ZarzLatami\Details.cshtml" />
-    <Content Include="Views\ZarzLatami\Edit.cshtml" />
-    <Content Include="Views\ZarzLatami\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
